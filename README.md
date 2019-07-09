@@ -29,7 +29,7 @@ CREATE DATABASE [InfluxDB Galaxy database name];
 
 Create a user specifically for this database using:
 ```
-CREATE USER [Galaxy InfluxDB username] WITH PASSWORD [Password here];
+CREATE USER [Galaxy InfluxDB username] WITH PASSWORD '[Password here]';
 ```
 
 
