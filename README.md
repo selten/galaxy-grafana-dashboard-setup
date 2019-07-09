@@ -73,7 +73,7 @@ Ensure that the following environment variables are set:
 
 ## Import data into InfluxDB
 
-1.  Query the Galaxy Database for information and export this to a file using `gxadmin meta slurp-current > /tmp/gxadmin-meta-slurp`
+1.  Query the Galaxy Database for information and export this to a file using `gxadmin meta slurp-current > /tmp/gxadmin-meta-slurp && gxadmin meta slurp-upto yyyy-mm-dd >> /tmp/gxadmin-meta-slurp`
 2.  Import the data into InfluxDB using `gxadmin meta influx-post [InfluxDB Galaxy database name] /tmp/gxadmin-meta-slurp`
 
 ## Add your first Galaxy Dashboard to Grafana
