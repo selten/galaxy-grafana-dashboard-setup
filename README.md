@@ -26,10 +26,12 @@ Create a database for your Galaxy instance using:
 CREATE DATABASE [InfluxDB Galaxy database name];
 ```
 
+
 Create a user specifically for this database using:
 ```
 CREATE USER [Galaxy InfluxDB username] WITH PASSWORD [Password here];
 ```
+
 
 For convenience, grant all permissions for your newly created user to the newly created database:
 ```
@@ -54,19 +56,19 @@ Download gxadmin as documented here: https://github.com/usegalaxy-eu/gxadmin.
 
 ### Configure gxadmin
 Ensure that the following environment variables are set:
-*  `PGDATABASE`
+*  `PGDATABASE`   
    This is the database name that you use for your Galaxy instance e.g. `galaxy`.
-*  `PGHOST`
+*  `PGHOST`   
    This is the hostname of the database server that you use for your Galaxy instance e.g. `localhost`.
-*  `PGUSER`
+*  `PGUSER`   
    This is the username for the database for your Galaxy instance e.g. `galaxy`.
-*  `PGPASSWORD`
+*  `PGPASSWORD`   
    This is the password for the user e.g. `secretpassword`.
-*  `INFLUX_URL`
+*  `INFLUX_URL`   
    This is the URL for InfluxDB, it is formatted like `[HOST/IP]:[PORT]` e.g. `127.0.0.1:8086`.
-*  `INFLUX_PASS`
+*  `INFLUX_PASS`   
    This is the password for the InfluxDB user e.g. `galaxy`.
-*  `INFLUX_USER`
+*  `INFLUX_USER`   
    This is the InfluxDB username e.g. `anothersecret`.
 
 ## Import data into InfluxDB
@@ -81,7 +83,7 @@ Ensure that the following environment variables are set:
 3.  Add a new data source, select `InfluxDB` as the data source type.
 4.  Configure the new data source.
     *  General
-       *  Set the name of the new data source to `Galaxy Historical`
+        *  Set the name of the new data source to `Galaxy Historical` (for compatilibity with dashboards created for `usegalaxy.eu`)
 	*  HTTP
 	   *  Set the URL to the URL of your InfluxDB e.g. `http://localhost:8086`
 	*  InfluxDB Details
@@ -92,4 +94,4 @@ Ensure that the following environment variables are set:
 5.  On the left hand side, open the '+' and select 'Import'.
 6.  Copy the JSON from https://github.com/usegalaxy-eu/grafana-dashboards/blob/master/Galaxy%20User%20Statistics.json
 7.  Paste this into the `Or paste JSON` section and press 'Load'.
-8.  The dashboard will now have been created. Please note that this dashboard is the one in use by usegalaxy.eu, so therefore adjustments might need to be made.
+8.  The dashboard will now have been created. Please note that this dashboard is the one in use by `usegalaxy.eu`, so therefore adjustments might need to be made.
