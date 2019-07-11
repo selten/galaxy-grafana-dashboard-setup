@@ -21,13 +21,17 @@ echo "" > /tmp/gxadmin-meta-import
 # Slurp the data for every date...
 d=$BEGINDATE
 while [ "$d" != $ENDDATE ]; do
-  gxadmin meta slurp-upto $d >> /tmp/gxadmin-meta-import
+  # Slurp for that day
+  gxadmin meta slurp-upto $d > /tmp/gxadmin-meta-import
+  
+  # Post it to InfluxDB
+  gxadmin meta influx-post $INFLUXDBNAME /tmp/gxadmin-meta-import
 
   d=$(date -I -d "$d + 1 day")
 done
 
 # Get the current information
-#gxadmin meta slurp-current >> /tmp/gxadmin-meta-import
+gxadmin meta slurp-current > /tmp/gxadmin-meta-import
 
 # Post it to InfluxDB
 gxadmin meta influx-post $INFLUXDBNAME /tmp/gxadmin-meta-import
