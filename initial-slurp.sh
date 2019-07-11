@@ -3,14 +3,14 @@
 # Settings for the initial slurp
 BEGINDATE=2019-01-01
 ENDDATE=2019-07-01
-INFLUXDBNAME=""
-PGDATABASE=""
-PGHOST=""
-PGUSER=""
-PGPASSWORD=""
-INFLUX_URL=""
-INFLUX_PASS=""
-INFLUX_USER=""
+export INFLUXDBNAME=""
+export PGDATABASE=""
+export PGHOST=""
+export PGUSER=""
+export PGPASSWORD=""
+export INFLUX_URL=""
+export INFLUX_PASS=""
+export INFLUX_USER=""
 
 # Settings for gxadmin
 PATH=$PATH:~/gxadmin/
